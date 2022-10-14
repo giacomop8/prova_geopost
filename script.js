@@ -4,5 +4,5 @@ fetch("https://estagio.geopostenergy.com/WorldCup/GetAllTeams", {
         "git-user": "giacomop8",
     },
 })
-.then((resposta) => resposta.json())
-.then((data) => console.log(data))
+.then((response) => response.json())
+.then((data) => document.getElementById("dados").innerHTML=data.Result[24].Name)
