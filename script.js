@@ -7,29 +7,37 @@ async function getContent() {
         }})
 
         const data = await response.json()
-        times = data.Result
+        const times = data.Result
 
-        sorteando(times)
+        return times
     } catch (error) {
         console.error(error)        
     }
 }
 
-async function sorteando(times) {
+async function sorteando() {
     
-    grupoFinal = []
-    timeSorteado = Math.floor(Math.random() * 32)
+    const times = await getContent()
+
+    times.sort(() => Math.random() - 0.5)
     
-    
-    /* for(let i=0; i<32; i++) {
-        
-        while(grupoFinal.indexOf(timeSorteado) != -1) {
-            timeSorteado = Math.floor(Math.random() * 32)
-        }
-        grupoFinal.push(times[timeSorteado])
-    }
-    
-    console.log(grupoFinal) */
+    const grupoA = times.slice(0,4)
+    const grupoB = times.slice(4,8)
+    const grupoC = times.slice(8,12)
+    const grupoD = times.slice(12,16)
+    const grupoE = times.slice(16,20)
+    const grupoF = times.slice(20,24)
+    const grupoG = times.slice(24,28)
+    const grupoH = times.slice(28,32)
+
+    console.log(grupoA)
+    console.log(grupoB)
+    console.log(grupoC)
+    console.log(grupoD)
+    console.log(grupoE)
+    console.log(grupoF)
+    console.log(grupoG)
+    console.log(grupoH)
 }
 
-let dados = getContent()
+sorteando()
